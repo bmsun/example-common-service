@@ -1,0 +1,294 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<base href='https://service.bj.10086.cn/poffice/'/>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>网营系统产品展示</title>
+<link rel="stylesheet" href="style/xdcx/css/style.css" type="text/css" />
+<script language="JavaScript" src="js/quick/sdc.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/new/maskControl.js"></script>
+<script type="text/javascript" src="js/new/packageTmp.js"></script>
+<script type="text/javascript" src="js/new/javascript.js"></script>
+<style>
+	#tableId tr td{display:block;float:left;width:72px;height:67px;}
+	#tableId tr td#detail_tot{width:100%;}
+	#tableId tr td.W100{width:100%;}
+</style>
+</head>
+<body>
+	<div class="main_loading" style="display: none;">
+				<div class="loading_icon">
+					<span></span>
+				</div>
+			</div>
+	<div style="display: none;">
+		<p>"MESSAGE":"OK"</p>
+		<p>DETAIL_TYPE</p>
+		<p>DETAIL</p>
+	</div>
+	
+	
+	
+			<div style=" height:2px; width:100%; border-top: 2px solid #1a80d4"></div>
+			<div id="gsm_sSousuoDiv1" style="line-height: 30px; height: 30px; margin-left: 5px; margin-right: 5px;">
+		<label>
+			起止日期：<select name="gsm_beginDay" id="gsm_beginDay">
+			</select>日 
+		</label>
+			至 
+		<label style="padding-right:34px">
+			<select name="gsm_endDay" id="gsm_endDay">
+			</select>日
+		</label>
+		<label style="padding-right:38px;">
+			通信地点：<input name="gsm_callAdd" id="gsm_callAdd" value="" size="14" type="text" />
+		</label>
+		<label style="padding-right:60px">
+			通信费：<select name="gsm_FeeValues" id="gsm_FeeValues">
+				<option value="0">全部</option>
+				<option value="1">等于0</option>
+				<option value="2">大于0</option>
+			</select>
+		</label>
+	</div>
+	<div id="gsm_sSousuoDiv2" style="line-height: 30px; height: 30px; margin-left: 5px; margin-right: 5px;">
+		<label style="padding-right:105px;">
+			通信方式：<select name="gsm_callTypes" id="gsm_callTypes">
+				<option value="0">全部</option>
+				<option value="1">主叫</option>
+				<option value="2">被叫</option>
+				<option value="4">呼转</option>
+			</select>
+		</label>
+		<label style="padding-right:25px;">
+			对方号码：<input name="gsm_callNum" id="gsm_callNum" value="" size="14" type="text" />
+		</label>
+		<label style="padding-right:20px;">
+			业务名称：<input name="gsm_YWName" id="gsm_YWName" value="" size="14" type="text" />
+		</label>
+		<span name="sSousuoCheck2" id="sSousuoCheck2"><a href="javascript:;" onclick="onSearch('gsm')"><img src="style/xdcx/images/sousuo.jpg"/></a></span>
+	</div>
+	<div style=" height:4px; width:100%; border-top: 2px solid #1a80d4"></div>
+	<div id="huizongDiv">
+		<table id="gsm_alltable2" name="alltable" style="" width="100%" cellspacing="0" cellpadding="3" border="0">
+			<tbody>
+			
+			 
+				<tr bgcolor="#d6e6f3">
+					
+			       	<td height="20" align="center"><span class="xdcx_span2">国内通话费</span></td>
+					<td align="center"><span class="xdcx_span2"><span id="detailGsm_cityCallFee1">0.00</span> 元</span></td>
+					<td align="center"><span class="xdcx_span2">国内通话</span></td>
+					<td align="center"><span class="xdcx_span2"><span id="detailGsm_domesticLongdistFee1">0.00</span> 元</span></td>
+					<td align="center"><span class="xdcx_span2">其它业务费</span></td>
+					<td align="center"><span class="xdcx_span2"><span id="detailGsm_domesticRoamFee1">0.00</span> 元</span></td>
+				</tr>
+			 
+				<tr bgcolor="#d6e6f3">
+					
+			       	<td height="20" align="center"><span class="xdcx_span2">国际/港澳台长途通话费</span></td>
+					<td align="center"><span class="xdcx_span2"><span id="detailGsm_cityCallFee1">0.00</span> 元</span></td>
+					<td align="center"><span class="xdcx_span2">港澳台长途</span></td>
+					<td align="center"><span class="xdcx_span2"><span id="detailGsm_domesticLongdistFee1">0.00</span> 元</span></td>
+					<td align="center"><span class="xdcx_span2">国际长途</span></td>
+					<td align="center"><span class="xdcx_span2"><span id="detailGsm_domesticRoamFee1">0.00</span> 元</span></td>
+				</tr>
+			 
+				<tr bgcolor="#d6e6f3">
+					
+			       	<td height="20" align="center"><span class="xdcx_span2">国际/港澳台漫游通话费</span></td>
+					<td align="center"><span class="xdcx_span2"><span id="detailGsm_cityCallFee1">0.00</span> 元</span></td>
+					<td align="center"><span class="xdcx_span2">港澳台漫游</span></td>
+					<td align="center"><span class="xdcx_span2"><span id="detailGsm_domesticLongdistFee1">0.00</span> 元</span></td>
+					<td align="center"><span class="xdcx_span2">国际漫游</span></td>
+					<td align="center"><span class="xdcx_span2"><span id="detailGsm_domesticRoamFee1">0.00</span> 元</span></td>
+				</tr>
+			
+			
+		</tbody></table>
+	</div>
+	<table id="detail_info" style="" width="100%" cellspacing="0"
+	cellpadding="0" border="0">
+		<thead>
+
+
+		<!-- 新通信显示table head -->
+		<tr id="gsm_title_tr2" style="" bgcolor="#1a80d4">
+			<td onclick="sortAble('gsm_title_tr2','tableId',0)"
+				style="cursor: pointer;" title="按起始时间排序" width="79"
+				align="center"><span class="xdcx_span">起始时间<img
+				name="img_name" id="img_0" src="style/xdcx/images/up01.jpg"/></span>
+			</td>
+			<td onclick="sortAble('gsm_title_tr2','tableId',1)"
+				style="cursor: pointer" title="按通信地点排序" width="79" align="center">
+			<span class="xdcx_span">通信地点<img name="img_name" id="img_1"
+				src="style/xdcx/images/stop01.jpg"/></span></td>
+			<td onclick="sortAble('gsm_title_tr2','tableId',2)"
+				style="cursor: pointer" title="按通信方式排序" width="79" align="center">
+			<span class="xdcx_span">通信方式<img name="img_name" id="img_2"
+				src="style/xdcx/images/stop01.jpg"/></span></td>
+			<td onclick="sortAble('gsm_title_tr2','tableId',3)"
+				style="cursor: pointer" title="按新通信排序" width="79" align="center">
+			<span class="xdcx_span">新通话<img name="img_name" id="img_3"
+				src="style/xdcx/images/stop01.jpg"/></span></td>
+			<td onclick="sortAble('gsm_title_tr2','tableId',4)"
+				style="cursor: pointer" title="按对方号码排序" width="79" align="center">
+			<span class="xdcx_span">对方号码<img name="img_name" id="img_4"
+				src="style/xdcx/images/stop01.jpg"/></span></td>
+			<td
+				onclick="sortAble('gsm_title_tr2','tableId',5,'float','timeLong')"
+				style="cursor: pointer" title="按通信时长排序" width="79" align="center">
+			<span class="xdcx_span">通信时长<img name="img_name" id="img_5"
+				src="style/xdcx/images/stop01.jpg"/></span></td>
+			<td onclick="sortAble('gsm_title_tr2','tableId',6,'float')"
+				style="cursor: pointer" title="按通信类型排序" width="79" align="center">
+			<span class="xdcx_span">通信类型<img name="img_name" id="img_6"
+				src="style/xdcx/images/stop01.jpg"/></span></td>
+			<td onclick="sortAble('gsm_title_tr2','tableId',7)"
+				style="cursor: pointer" title="按业务名称排序" width="79" align="center">
+			<span class="xdcx_span">业务名称<img name="img_name" id="img_7"
+				src="style/xdcx/images/stop01.jpg"/></span></td>
+			<td onclick="sortAble('gsm_title_tr2','tableId',8)"
+				style="cursor: pointer" title="按套餐优惠排序" width="79" align="center">
+			<span class="xdcx_span">套餐优惠<img name="img_name" id="img_8"
+				src="style/xdcx/images/stop01.jpg"/></span></td>
+			<td onclick="sortAble('gsm_title_tr2','tableId',9,'float')"
+				style="cursor: pointer" title="按通信费排序" width="79" align="center">
+			<span class="xdcx_span">通信费<img name="img_name" id="img_9"
+				src="style/xdcx/images/stop01.jpg"/></span></td>
+		</tr>
+
+	</thead>
+	<tbody>
+		<tr>
+			<td id="detail_panel" scope="row" colspan="10" valign="top">
+			<div id="panel" style="height: 248px;">
+			<div id="workbench"><!-- 详单明细开始 -->
+			<table id="tableId" name="tableId" width="100%" cellspacing="0"
+				cellpadding="0" border="0">
+				<tbody id="DETAIL" style="font-size: 12px;">
+					 
+						
+							<tr bgcolor="#d6e6f3">
+								<td align="center" >09-07 15:11:45</td>
+								<td align="center">杭州</td>
+								<td align="center">被叫</td>
+								<td align="center">否</td>
+								<td align="center">
+								
+								15224099137</td>
+								<td align="center">08秒</td>
+								<td align="center">国内被叫</td>
+								<td align="center">被叫通话费</td>
+								<td align="center"></td>
+								<td align="center">0.00</td>
+							</tr>
+						
+					 
+						
+							<tr bgcolor="#ffffff">
+								<td align="center" >09-07 15:13:05</td>
+								<td align="center">杭州</td>
+								<td align="center">主叫</td>
+								<td align="center">否</td>
+								<td align="center">
+								
+								15224099137</td>
+								<td align="center">02秒</td>
+								<td align="center">国内异地主叫</td>
+								<td align="center">基本通话费</td>
+								<td align="center">和4G套餐108套餐</td>
+								<td align="center">0.00</td>
+							</tr>
+						
+					
+				</tbody>
+				<tbody>
+					<tr>
+						<td id="detail_tot" colspan="10" style="font-size: 12px;"
+							bgcolor="#d6e6f3">  <strong>总计：
+						    <span id="totalFee"
+							style="font-size: 12px;">0.00</span></strong>     <strong>总记录数：    <span
+							id="showNumTotal" style="font-size: 12px;">2</span></strong></td>
+					</tr>
+
+					<tr id="remark_tit" style="font-size: 12px;">
+						<tr>
+							<td colspan="4" height="25" valign="top"><strong
+								style="font-size: 12px;">  备注：</strong></td>
+						</tr>
+					</tr>
+					<tr>
+						<td colspan="10" class="W100" style="font-size: 12px;" height="25" valign="top">（1）国际及港澳台漫游详单展示的时间为漫游地当地时间，与北京时间可能存在时差。另外，由于漫游地传回话单存在时延，可能造成上月记录在本月展示的情况。</td>
+					</tr>
+					<tr>
+						<td colspan="10" class="W100" style="font-size: 12px;" height="25" valign="top">（2）因漫游地运营商原因，国际及港澳台漫游的被叫话单中，主叫号码可能显示为空，或显示为被叫号码，或显示其它号码。这种情况属于正常情况。</td>
+					</tr>
+					<tr>
+						<td colspan="10" class="W100" style="font-size: 12px;" height="25" valign="top">（3）呼转话单将展示为2条话单，即呼转状态下的被叫话单和主叫话单。</td>
+					</tr>
+				</tbody>
+			</table>
+	
+			<!-- 详单明细结束 --></div>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td id="dayin_bottom" colspan="10" height="25" valign="bottom"
+				align="center"><input id="printbutton" class="onlyShow"
+				name="button" value=" 打 印 " type="button"/></td>
+		</tr>
+	</tbody>
+</table>
+
+	
+
+<script type="text/javascript">
+	function getLastDay(year,month) {
+	//alert("month----------------------------->"+month);
+		var myDate = new Date(); 
+		var new_year = year; //取当前的年份
+		var year2=myDate.getFullYear();
+		var month2=myDate.getMonth();
+		month2=month2+1;
+		var new_month = month;//取下一个月的第一天，方便计算（最后一天不固定）
+		//var new_date = new Date(new_year,new_month,1); //取当年当月中的第一天
+		var new_date = new Date(new_year,month,1); //取当年当月中的第一天
+		//alert("new_date----------------------------->"+new_date);
+		var lasdDay = (new Date(new_date.getTime()-1000*60*60*24)).getDate();//获取当月最后一天日期
+		//alert("lasdDay----------------------------->"+lasdDay);
+		if(year==year2 && month==month2){
+			lasdDay = myDate.getDate();//如果是当月，则最大日期是当前
+		}
+		return lasdDay;
+	}
+	$(function(){
+		$('.main_loading').hide();
+		 var month="201709";
+		 if(month == null || $.trim(month) == ''){
+			 month = "";
+		 }
+		 var iYear=month.substring(0,4);
+		 var iMonth=month.substring(4,6);
+		 var iMax = getLastDay(iYear,iMonth);
+			$("#gsm_beginDay option").remove();//移除
+			$("#gsm_endDay option").remove();//移除
+			for(var i=1;i<=iMax;i++){
+				$("#gsm_beginDay").append("<option value='"+i+"'"+(i==0?"selected":"")+">"+i+"</option>");
+				$("#gsm_endDay").append("<option value='"+i+"' "+(i==iMax?"selected":"")+">"+i+"</option>");
+			}
+	});
+	$('.onlyShow').click(function(){
+		$('#panel').css({'height':'auto'});
+		window.print();
+		$('#panel').css({'height':'248px'});
+	});
+</script>	
+</body>
+
+</html>
