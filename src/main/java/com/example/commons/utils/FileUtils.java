@@ -26,6 +26,14 @@ public class FileUtils {
         return false;
     }
 
+    /***
+     * @Date 2018/3/22
+     * @param fileName 文件名称
+     * @Description 1、传入参数是相对路径时，文件存储位置：／src/main/resources＋相对路径；
+     *              2、传入参数是绝对路径时，文件存储本地。
+     * @return File
+     * @author zhanghesheng
+     * */
     public static File creatFile(String fileName) {
         File file = null;
         if (fileName == null || StringUtils.isBlank(fileName)) {
@@ -34,7 +42,9 @@ public class FileUtils {
         if (isExists(fileName)) {
             file = new File(fileName);
         } else {
+            //文件名
             String name = null;
+            //文件路径
             String filePath = null;
             //默认路径：工程目录下／src/main/resources
             String dir = System.getProperty(USER_DIR) + ROOT_SOURCE;

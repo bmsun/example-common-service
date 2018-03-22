@@ -9,7 +9,7 @@ import javax.validation.ValidationException;
 import javax.validation.constraints.Min;
 
 /**
- * Created by wangyanbo on 17/2/23.
+ * Created by zhanghesheng
  */
 public class BaseValidatorUtilsTest {
     @Test

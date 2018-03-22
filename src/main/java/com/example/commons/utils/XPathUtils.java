@@ -47,47 +47,6 @@ public class XPathUtils {
     private static int contentNodeCount = 0;
     private static int targetContentNodeIndex = 0;
 
-
-    /**
-     * @param content         需要解析的文本
-     * @param xpathExpression xpath表达式
-     * @return List<String>
-     * @author zhanghesheng
-     * @date 2017/11/18
-     */
-    public static List<String> xpathPattern(String content, String xpathExpression) {
-
-        // 解析结果
-        List<String> splits = new LinkedList();
-        try {
-            HtmlCleaner cleaner = new HtmlCleaner();
-            TagNode node = cleaner.clean(content);
-
-            XMLOutputter out = new XMLOutputter();
-            out.setFormat(Format.getCompactFormat().setEncoding("utf-8"));
-            JDomSerializer jdomSerializer = new JDomSerializer(cleaner.getProperties(), false);
-
-            Object[] elements = node.evaluateXPath(xpathExpression);
-            if (ArrayUtils.isNotEmpty(elements)) {
-                Object[] var12 = elements;
-                int var13 = elements.length;
-                for (int var14 = 0; var14 < var13; ++var14) {
-                    Object obj = var12[var14];
-                    if (obj instanceof TagNode) {
-                        TagNode resultNode = (TagNode) obj;
-                        Document doc = jdomSerializer.createJDom(resultNode);
-                        splits.add(out.outputString(doc.getRootElement()));
-                    } else if (obj instanceof CharSequence) {
-                        splits.add(String.valueOf(obj));
-                    }
-                }
-            }
-        } catch (Exception var19) {
-            logger.error("select use xpath error! xpath " + xpathExpression);
-        }
-        return splits;
-    }
-
     /**
      * @param select  jsoup 表达式
      * @param content 需要解析的文本
@@ -113,23 +72,30 @@ public class XPathUtils {
 
         return splits;
     }
-
-    public static Collection<? extends String> useXpathSelect(String xpath, String content) {
+    /**
+     * @param xpathExp xpath表达式
+     * @param content  需要解析的文本
+     * @return List<String>
+     * @author zhanghesheng
+     * @date 2017/11/18
+     */
+    public static Collection<? extends String> useXpathSelect(String xpathExp, String content) {
+        //对要解析的文本进行预处理
         content=contentPreClean(content);
         List<String> splits = new LinkedList();
         Pattern pattern = Pattern.compile(TEXT_REG_EX);
-        Matcher matcher = pattern.matcher(xpath);
+        Matcher matcher = pattern.matcher(xpathExp);
         boolean extractText = matcher.find();
         Integer textIndex = null;
         if (extractText) {
             try {
-                String indexString = xpath.substring(matcher.start(2), matcher.end(2));
+                String indexString = xpathExp.substring(matcher.start(2), matcher.end(2));
                 textIndex = Integer.parseInt(indexString);
             } catch (Exception var18) {
-                ;
+
             }
 
-            xpath = xpath.substring(0, matcher.start());
+            xpathExp = xpathExp.substring(0, matcher.start());
         }
 
         try {
@@ -139,7 +105,7 @@ public class XPathUtils {
             out.setFormat(Format.getCompactFormat().setEncoding("utf-8"));
             out.setXMLOutputProcessor(new XPathUtils.CustomProcessor());
             JDomSerializer jdomSerializer = new JDomSerializer(cleaner.getProperties(), false);
-            Object[] elements = node.evaluateXPath(xpath);
+            Object[] elements = node.evaluateXPath(xpathExp);
             if (ArrayUtils.isNotEmpty(elements)) {
                 Object[] var12 = elements;
                 int var13 = elements.length;
@@ -165,7 +131,7 @@ public class XPathUtils {
                 }
             }
         } catch (Exception var19) {
-            logger.error("select use xpath error! xpath " + xpath);
+            logger.error("select use xpath error! xpath " + xpathExp);
         }
 
         return splits;
@@ -267,22 +233,10 @@ public class XPathUtils {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     public static void main(String[] args) {
-        String content = ReadConfigUtils.readFile("call-detail-page_201709_20171117173924993.html");
+        //String content1 = ReadConfigUtils.readFile("call-detail-page_201709_20171117173924993.html");
         String content1 = ReadConfigUtils.readFile("test.html");
-        //list.forEach(System.out::println);
-        //List<String> list1 = xpathPattern(content1,"//tr/td[2]/text()");
+        List<String> list1 = (List<String>)useSaxonXpathSelect("//tr/td[2]/text()[1]",content1);
+        list1.forEach(System.out::println);
     }
 }

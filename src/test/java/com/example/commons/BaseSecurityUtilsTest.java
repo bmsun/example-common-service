@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Created by wangyanbo on 16/12/9.
+ * Created by zhanghesheng
  */
 public class BaseSecurityUtilsTest {
     @Test

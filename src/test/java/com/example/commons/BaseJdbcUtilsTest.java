@@ -21,7 +21,7 @@ import static org.hamcrest.text.IsEqualIgnoringCase.equalToIgnoringCase;
 import static org.junit.Assert.*;
 
 /**
- * Created by wangyanbo on 17/3/4.
+ * Created by zhanghesheng
  */
 @Slf4j
 public class BaseJdbcUtilsTest {
