@@ -1,12 +1,14 @@
 package com.example.commons.utils;
 
 
+import com.example.commons.model.UserEntity;
 import com.thoughtworks.xstream.XStream;
 import lombok.Data;
 
 import org.junit.Test;
 
 import java.net.URL;
+import java.util.Date;
 
 public class MyTest {
 
@@ -47,6 +49,13 @@ public class MyTest {
         System.out.println(s.substring(0,-1));
 
     }
+
+    @Test
+    public void testInnerBuilder(){
+        UserEntity build = new UserEntity.Builder().age(1).name("zhangsan").lastModifyTime(new Date()).build();
+        System.out.println(build);
+    }
+
 
     @Test
     public void testjsoup() throws Exception { }

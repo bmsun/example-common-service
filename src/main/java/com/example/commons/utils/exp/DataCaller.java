@@ -31,7 +31,7 @@ import java.util.Set;
 
 /***
  * @Date 2017/11/24
- *@Description httpClient
+ *@Description httpClient apache同步请求httpclient
  * @author zhanghesheng
  * */
 @Slf4j

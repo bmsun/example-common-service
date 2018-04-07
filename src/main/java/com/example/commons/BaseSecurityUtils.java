@@ -14,6 +14,7 @@ import java.util.Base64;
 
 @Slf4j
 public class BaseSecurityUtils {
+
     public static String md5(String src) {
         if (StringUtils.isBlank(src)) {
             return src;
