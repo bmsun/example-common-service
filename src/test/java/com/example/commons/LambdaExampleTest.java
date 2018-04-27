@@ -5,9 +5,7 @@ import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -176,8 +174,6 @@ public class LambdaExampleTest {
 
     @Test
     public void testGroupBy(){
-
-
        List<UserEntity> userEntities = Lists.newArrayList();
         userEntities.add(new UserEntity("1","zhangsan",13,null));
         userEntities.add(new UserEntity("2","lisi",13,null));
@@ -198,6 +194,19 @@ public class LambdaExampleTest {
         System.out.println(map);
         System.out.println(listMap);
     }
+
+    @Test
+      public void testListToMap(){
+        List<UserEntity> users = new ArrayList<UserEntity>();
+        users.add(new UserEntity("1","zhangsan",13,new Date()));
+        users.add(new UserEntity("2","lisi",15,new Date()));
+
+        Map<String, UserEntity> mappedMovies = users.stream().collect(
+                Collectors.toMap(UserEntity::getId, (p) -> p));
+        System.out.println(mappedMovies);
+        System.out.println(mappedMovies.values());
+    }
+
 
 
 }

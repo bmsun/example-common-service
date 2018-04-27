@@ -24,6 +24,7 @@
         <dom4j.version>1.6.1</dom4j.version>
         <zip4j-version>1.3.2</zip4j-version>
         <ant-version>1.9.4</ant-version>
+        <poi.version>3.17</poi.version>
     </properties>
 
     <dependencies>
@@ -218,6 +219,17 @@
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
             <version>${xstream.version}</version>
+        </dependency>
+        <!-- org.apache.poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi.version}</version>
         </dependency>
 
 

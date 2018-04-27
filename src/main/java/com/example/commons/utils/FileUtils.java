@@ -1,5 +1,6 @@
 package com.example.commons.utils;
 
+import jodd.util.HtmlDecoder;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -122,10 +123,56 @@ public class FileUtils {
         return buffer;
     }
 
+
+    /**解决乱码问题*/
+    public static String toUtf8String(String s){
+        StringBuffer sb = new StringBuffer();
+        for (int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            if (c >= 0 && c <= 255){sb.append(c);}
+            else{
+                byte[] b;
+                try { b = Character.toString(c).getBytes("utf-8");}
+                catch (Exception ex) {
+                    System.out.println(ex);
+                    b = new byte[0];
+                }
+                for (int j = 0; j < b.length; j++) {
+                    int k = b[j];
+                    if (k < 0) k += 256;
+                    sb.append("%" + Integer.toHexString(k).toUpperCase());
+                }
+            }
+        }
+        return sb.toString();
+    }
+
+    /**解决乱码问题*/
+    protected String handleResponseBody(String content) {
+        if(StringUtils.isBlank(content)) {
+            return content;
+        }
+        if(content.contains("æ")) {
+            try {
+                content = new String(content.getBytes("ISO-8859-1"),"UTF-8");
+            } catch (UnsupportedEncodingException e) {
+            }
+        }
+        content = HtmlDecoder.decode(content);
+        // todo……
+        return content;
+    }
+
+
+
+
+
+
+
     public static void main(String[] args) throws Exception {
         File file = creatFile("b/test.html");
         String canonicalPath = file.getCanonicalPath();
         System.out.println(canonicalPath);
-       // System.out.println(deleteFile(canonicalPath));
+        System.out.println(deleteFile(canonicalPath));
     }
 }
