@@ -26,6 +26,19 @@ public class FileCompressUtils {
 
     /**
      * @param srcPath  源文件路径
+     * @param pass     密令
+     * @return 目标文件
+     * @author zhanghesheng
+     * @date 2017/11/25
+     * @Description zip方式加密压缩
+     */
+    public static File encryptZip(String srcPath,  String pass) throws ZipException {
+      return encryptZip(srcPath,srcPath,pass);
+    }
+
+
+    /**
+     * @param srcPath  源文件路径
      * @param destPath 目标文件路径
      * @param pass     密令
      * @return 目标文件
@@ -49,17 +62,20 @@ public class FileCompressUtils {
             LOGGER.error("destPath expected a directory, but is an exists file");
             return null;
         }
-        String destStr = srcDir + ".zip";
+        String destStr = destDir + ".zip";
         File destFile = new File(destStr);
         ZipFile zipFile = new ZipFile(destFile);
 
         ZipParameters parameters = new ZipParameters();
         parameters.setCompressionMethod(Zip4jConstants.COMP_DEFLATE);
         parameters.setCompressionLevel(Zip4jConstants.DEFLATE_LEVEL_NORMAL);
-        parameters.setEncryptFiles(true);
-        parameters.setEncryptionMethod(Zip4jConstants.ENC_METHOD_AES);
-        parameters.setAesKeyStrength(Zip4jConstants.AES_STRENGTH_256);
-        parameters.setPassword(pass);
+        //有密码时，加密
+        if(StringUtils.isNotBlank(pass)){
+            parameters.setEncryptFiles(true);
+            parameters.setEncryptionMethod(Zip4jConstants.ENC_METHOD_AES);
+            parameters.setAesKeyStrength(Zip4jConstants.AES_STRENGTH_256);
+            parameters.setPassword(pass);
+        }
         zipFile.addFolder(srcPath, parameters);
         return zipFile.getFile();
     }
@@ -81,9 +97,6 @@ public class FileCompressUtils {
         }
         if (zipFile.isEncrypted()) {
             zipFile.setPassword(pass);
-
-        } else {
-            targetFile = String.format("%s/%s", targetFile);
         }
         zipFile.extractAll(targetFile);
     }

@@ -235,7 +235,7 @@ public class XPathUtils {
 
     public static void main(String[] args) {
         //String content1 = ReadConfigUtils.readFile("call-detail-page_201709_20171117173924993.html");
-        String content1 = ReadConfigUtils.readFile("test.html");
+        String content1 = ReadConfigUtils.readFile("testfile/test.html");
         List<String> list1 = (List<String>)useSaxonXpathSelect("//tr/td[2]/text()[1]",content1);
         list1.forEach(System.out::println);
     }

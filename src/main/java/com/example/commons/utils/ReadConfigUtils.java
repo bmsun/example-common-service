@@ -2,6 +2,7 @@ package com.example.commons.utils;
 
 
 import java.io.*;
+import java.net.URL;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -65,7 +66,7 @@ public class ReadConfigUtils {
     }
 
     /**
-     * @param fileName 文件路径
+     * @param fileName 文件路径 可以是绝对路径，也可以是Resource目录下的相对路径
      * @return String 文件内容
      * @Description 直接用apache 工具类IOUtils(建议使用)
      * @author zhanghesheng
@@ -85,7 +86,9 @@ public class ReadConfigUtils {
                 reader = new BufferedReader(inputFileReader);
                 str = IOUtils.toString(reader);
             } else {//相对路径
+                //fileName为根目录下的路径：Resource:XX/xx.xx
                 inputStream = ReadConfigUtils.class.getResourceAsStream(DIR_SEPARATOR_UNIX + fileName);
+               //等同inputStream = ReadConfigUtils.class.getClassLoader().getResourceAsStream(fileName);
                 str = IOUtils.toString(inputStream, DEFAUT_ENCODING);
             }
         } catch (IOException e) {
@@ -141,7 +144,6 @@ public class ReadConfigUtils {
 
 
     public static void main(String[] args)throws Exception {
-       File file =new File("/a/a/b.txt");
-       file.createNewFile();
+        System.out.println(readFile("des.js"));
     }
 }

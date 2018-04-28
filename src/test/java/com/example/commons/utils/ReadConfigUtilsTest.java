@@ -14,14 +14,14 @@ public class ReadConfigUtilsTest {
 
     @Test
     public void testReadFileByLines() throws Exception {
-        String s = ReadConfigUtils.readFileByLines("test.html");
+        String s = ReadConfigUtils.readFileByLines("testfile/test.html");
         System.out.println(s);
 
     }
 
     @Test
     public void testWriteFile() throws Exception {
-       ReadConfigUtils.writeFile("","","test.html");
+       ReadConfigUtils.writeFile("","", "testfile/test.html");
         //System.out.println(s);
 
     }

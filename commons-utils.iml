@@ -39,7 +39,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: joda-time:joda-time:1.6.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.github.stephenc.high-scale-lib:high-scale-lib:1.1.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.eaio.uuid:uuid:3.2" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: commons-lang:commons-lang:2.4" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.4" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:5.2.2.Final" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.2.1.Final" level="project" />
@@ -95,5 +95,9 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-core:4.3.4.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-tx:4.3.4.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: mysql:mysql-connector-java:5.1.40" level="project" />
+    <orderEntry type="library" name="Maven: com.aliyun.oss:aliyun-sdk-oss:2.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.jdom:jdom:1.1" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.json-lib:json-lib:jdk15:2.4" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.ezmorph:ezmorph:1.0.6" level="project" />
   </component>
 </module>

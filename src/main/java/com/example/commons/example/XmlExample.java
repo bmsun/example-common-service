@@ -234,7 +234,7 @@ public class XmlExample {
     }
 
     public static void main(String[] args) {
-        String content = "<xml><a><b></b></a><c></c></xml>";
+        String content = "<xml><a><testfile></testfile></a><c></c></xml>";
         List list = xmlContentParser(content);
         list.forEach(System.out::println);
     }

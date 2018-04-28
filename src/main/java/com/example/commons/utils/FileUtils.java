@@ -170,7 +170,7 @@ public class FileUtils {
 
 
     public static void main(String[] args) throws Exception {
-        File file = creatFile("b/test.html");
+        File file = creatFile("testfile/test.html");
         String canonicalPath = file.getCanonicalPath();
         System.out.println(canonicalPath);
         System.out.println(deleteFile(canonicalPath));
