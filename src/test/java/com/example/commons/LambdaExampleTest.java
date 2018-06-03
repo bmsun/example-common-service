@@ -3,10 +3,12 @@ package com.example.commons;
 import com.example.commons.model.UserEntity;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -195,6 +197,12 @@ public class LambdaExampleTest {
         System.out.println(listMap);
     }
 
+
+
+    /**
+     *  list根据实体类的某一字段为主键转为Map
+     *   注意：Collectors.toMap()会出现Key重复异常；为解决此异常需加Function.identity()作区分。
+     * */
     @Test
       public void testListToMap(){
         List<UserEntity> users = new ArrayList<UserEntity>();
@@ -202,7 +210,7 @@ public class LambdaExampleTest {
         users.add(new UserEntity("2","lisi",15,new Date()));
 
         Map<String, UserEntity> mappedMovies = users.stream().collect(
-                Collectors.toMap(UserEntity::getId, (p) -> p));
+                Collectors.toMap(UserEntity::getId, Function.identity(), (p,id) -> p));
         System.out.println(mappedMovies);
         System.out.println(mappedMovies.values());
     }

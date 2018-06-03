@@ -4,6 +4,8 @@ package com.example.commons.utils;
 import java.io.*;
 import java.net.URL;
 
+import com.google.common.base.Charsets;
+import com.google.common.io.Resources;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -143,7 +145,28 @@ public class ReadConfigUtils {
     }
 
 
+    /**
+     * 从Resource目录下获取文件内容
+     *
+     * @param fileName 文件名
+     * @return
+     */
+    public static String getFileContentFromResource(String fileName) {
+        String content = new String();
+        try {
+            URL url = Resources.getResource(fileName);
+            content = Resources.toString(url, Charsets.UTF_8);
+        } catch (IOException e) {
+            LOGGER.error("读取Resource目录下文件:[{}] -> 异常 -> 失败原因:[{}]", fileName, e.getMessage());
+            e.printStackTrace();
+        }
+        return content;
+    }
+
     public static void main(String[] args)throws Exception {
-        System.out.println(readFile("des.js"));
+      //  System.out.println(readFile("/Users/zhanghesheng/Documents/private/example-common-service/src/main/resources/logback.xml"));
+       // System.out.println(getFileContentFromResource("logback.xml"));
+        System.out.println(readFile("logback.xml"));
+
     }
 }

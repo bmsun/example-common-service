@@ -1,5 +1,6 @@
 package com.example.commons.utils;
 
+import com.example.commons.utils.security.DESUtils;
 import org.junit.Test;
 
 public class DesUtilsTest {

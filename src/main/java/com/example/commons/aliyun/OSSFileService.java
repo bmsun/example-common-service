@@ -23,6 +23,7 @@ public class OSSFileService {
     private static String accessKeySecret = "ig4BlVxdGyhLeD6wmtlOjQgL9hdGLz";
     private static String bucketName = "oper-bucket";
     private static String downloadDir = "/tmp/pack/downloads";
+    //压缩文件加密密钥
     private static String encodePass = "lskjfkji2ejskldfjiwoej234";
 
     private static Integer maxConnections = 100;

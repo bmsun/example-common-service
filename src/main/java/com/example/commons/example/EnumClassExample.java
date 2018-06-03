@@ -11,4 +11,5 @@ public enum EnumClassExample {
     public String getParamName(){
         return paramName;
     }
+
 }

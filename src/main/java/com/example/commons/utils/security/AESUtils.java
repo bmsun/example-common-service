@@ -1,4 +1,4 @@
-package com.example.commons.utils;
+package com.example.commons.utils.security;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -140,5 +140,6 @@ public class AESUtils {
         System.out.println("加密后：" + encrypt);
         String decrypt = decrypt(encrypt, KEY);
         System.out.println("解密后：" + decrypt);
+
     }
 }

@@ -3,7 +3,11 @@ package com.example.commons.example;
 import org.junit.Test;
 
 import java.util.Arrays;
-
+/***
+ * @Date 2018/5/17
+ * @Description  含参枚举类使用案例
+ * @author zhanghesheng
+ * */
 public class EnumClassExampleTest {
 
     @Test

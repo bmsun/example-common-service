@@ -5,9 +5,11 @@ import com.example.commons.model.UserEntity;
 import com.thoughtworks.xstream.XStream;
 import lombok.Data;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 import java.net.URL;
+import java.util.Calendar;
 import java.util.Date;
 
 public class MyTest {
@@ -58,13 +60,32 @@ public class MyTest {
 
 
     @Test
-    public void testjsoup() throws Exception { }
+    public void testjsoup() throws Exception {
+        DateTime dt3 = new DateTime(2018, 5, 8, 13, 14, 0, 0);
+        DateTime dt3_1 = new DateTime(2018, 5, 6,13,14);
+        Integer dateDays = getDateDays(dt3.toDate(), dt3_1.toDate());
+        System.out.println(dateDays);
+    }
 
     @Data
     public static class Bean1 {
         String f1;
         String f2;
         String f3;
+    }
+
+
+    Integer getDateDays(Object firstTime, Object nowTime) {
+        if(firstTime != null && nowTime != null){
+            Calendar calendarMinDate = Calendar.getInstance();
+            calendarMinDate.setTime((Date)firstTime);
+            Calendar calendarMaxDate = Calendar.getInstance();
+            calendarMaxDate.setTime((Date)nowTime);
+            int days = (calendarMaxDate.get(Calendar.YEAR) - calendarMinDate.get(Calendar.YEAR)) * 365 +
+                    calendarMaxDate.get(Calendar.DAY_OF_YEAR) - calendarMinDate.get(Calendar.DAY_OF_YEAR);
+            return days;
+        }
+        return null;
     }
 }
 

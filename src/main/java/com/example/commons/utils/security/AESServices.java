@@ -1,4 +1,4 @@
-package com.example.commons.utils;
+package com.example.commons.utils.security;
 
 
 import com.example.commons.utils.exp.AES128;
