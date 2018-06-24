@@ -47,9 +47,10 @@ public class MyTest {
     @Test
     public void testString() throws Exception {
         String s = "\\123";
-        System.out.println(s.lastIndexOf("."));
-        System.out.println(s.substring(0,-1));
+       // System.out.println(s.lastIndexOf("."));
+        //System.out.println(s.substring(0,-1));
 
+        System.out.println((char)58);
     }
 
     @Test
@@ -58,6 +59,23 @@ public class MyTest {
         System.out.println(build);
     }
 
+
+    @Test
+    public void testMath() throws Exception {
+        System.out.println(Math.round(0.5));
+        System.out.println(Math.round(1.5));
+        System.out.println(Math.round(2.5));
+        System.out.println(Math.round(3.5));
+
+        long  a = 123L;
+        int b = 123;
+        double c= 123.0;
+
+        //System.out.println(a.equals(b));
+        System.out.println(b==c);
+
+
+    }
 
     @Test
     public void testjsoup() throws Exception {

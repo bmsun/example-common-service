@@ -21,7 +21,7 @@ public class LoadingCacheTest {
         cacheExample.getPeopleInfos("");
 
         try {
-            TimeUnit.SECONDS.sleep(55);
+            TimeUnit.SECONDS.sleep(20);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

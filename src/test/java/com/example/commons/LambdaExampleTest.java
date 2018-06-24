@@ -214,9 +214,6 @@ public class LambdaExampleTest {
         System.out.println(mappedMovies);
         System.out.println(mappedMovies.values());
     }
-
-
-
 }
 
 

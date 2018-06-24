@@ -20,7 +20,7 @@ public class LoadingCacheExample {
      */
     LoadingCache<String, List<Bean>> cache = CacheBuilder.newBuilder()
             //设置过期时间
-            .expireAfterWrite(1, TimeUnit.MINUTES)
+            .expireAfterWrite(30, TimeUnit.SECONDS)
             .build(new CacheLoader<String, List<Bean>>() {
                 @Override
                 public List<Bean> load(String key) throws Exception {

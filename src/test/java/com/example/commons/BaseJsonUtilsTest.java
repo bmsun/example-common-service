@@ -1,5 +1,6 @@
 package com.example.commons;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +29,16 @@ public class BaseJsonUtilsTest {
         Assert.assertEquals(bean.getF1(), "hello");
 
         Assert.assertEquals(BaseJsonUtils.valueFromJsonKey(json, "type"), "service");
+    }
+
+
+    @Test
+    public void testJackson() throws Exception{
+        ObjectMapper  mapper = new ObjectMapper();
+        String s = mapper.writeValueAsString(new Bean());
+        System.out.println(s);
+        System.out.println(mapper.writeValueAsString("222"));
+
     }
 
     @Data
