@@ -2,6 +2,7 @@ package com.example.commons.utils;
 
 
 import com.example.commons.model.UserEntity;
+import com.google.common.collect.Maps;
 import com.thoughtworks.xstream.XStream;
 import lombok.Data;
 
@@ -9,8 +10,10 @@ import org.joda.time.DateTime;
 import org.junit.Test;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 
 public class MyTest {
 
@@ -47,10 +50,35 @@ public class MyTest {
     @Test
     public void testString() throws Exception {
         String s = "\\123";
-       // System.out.println(s.lastIndexOf("."));
+        // System.out.println(s.lastIndexOf("."));
         //System.out.println(s.substring(0,-1));
 
         System.out.println((char)58);
+        char[] chars = "1234".toCharArray();
+        for (char a:chars){
+            System.out.println(a);
+        }
+    }
+
+    /**可变参数 */
+    @Test
+    public void testArgs() throws Exception {
+        String s = testArg("1","2","3");
+        System.out.println(s);
+    }
+
+
+    @Test
+    public void testMap() throws Exception {
+        Map map= Maps.newHashMap();
+        map.put("1","11");
+
+        map.put("2","22");
+
+        map.put("2","11");
+        System.out.println(map.size());
+        System.out.println(map.values());
+
     }
 
     @Test
@@ -104,6 +132,15 @@ public class MyTest {
             return days;
         }
         return null;
+    }
+
+
+    private  String testArg(String ...args){
+        String result="";
+        for (String arg:args){
+            result+=arg;
+        }
+        return result;
     }
 }
 

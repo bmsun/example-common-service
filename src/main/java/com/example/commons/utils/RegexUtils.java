@@ -83,9 +83,9 @@ public class RegexUtils {
 
 
     public static void main(String[] args) {
-        String regex ="(\\d+)";
+        String regex ="(\\d+(\\D)*(\\d+))";
         String content="23d45";
-        List result = regexAllPattern(regex ,content, 1);
-        result.stream().forEach(System.out::println);
+        String result = RegexUtils.regexPattern(regex, content, 1);
+        System.out.println(result);
     }
 }

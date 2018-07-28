@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--此为Moxie私服-->
+
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">  
+  <!-- localRepository
+   | The path to the local repository maven will use to store artifacts.
+   |
+   | Default: ${user.home}/.m2/repository
+  <localRepository>/path/to/local/repo</localRepository>
+  -->  
+  <!-- interactiveMode
+   | This will determine whether maven prompts you when it needs input. If set to false,
+   | maven will use a sensible default value, perhaps based on some other setting, for
+   | the parameter in question.
+   |
+   | Default: true
+  <interactiveMode>true</interactiveMode>
+  -->  
+  <!-- offline
+   | Determines whether maven should attempt to connect to the network when executing a build.
+   | This will have an effect on artifact downloads, artifact deployment, and others.
+   |
+   | Default: false
+  <offline>false</offline>
+  -->  
+  <!-- pluginGroups
+   | This is a list of additional group identifiers that will be searched when resolving plugins by their prefix, i.e.
+   | when invoking a command line like "mvn prefix:goal". Maven will automatically add the group identifiers
+   | "org.apache.maven.plugins" and "org.codehaus.mojo" if these are not already contained in the list.
+   |-->  
+  <pluginGroups> 
+    <!-- pluginGroup
+     | Specifies a further group identifier to use for plugin lookup.
+    <pluginGroup>com.your.plugins</pluginGroup>
+    --> 
+  </pluginGroups>  
+  <!-- proxies
+   | This is a list of proxies which can be used on this machine to connect to the network.
+   | Unless otherwise specified (by system property or command-line switch), the first proxy
+   | specification in this list marked as active will be used.
+   |-->  
+  <proxies> 
+    <!--
+    <proxy>
+      <id>ss</id>
+      <active>true</active>
+      <protocol>socks5</protocol>
+      <username></username>
+      <password></password>
+      <host>127.0.0.1</host>
+      <port>1087</port>
+      <nonProxyHosts>127.0.0.1|192.168.*</nonProxyHosts>
+    </proxy>
+    --> 
+  </proxies> 
+
+  <servers> 
+    <server> 
+      <id>moxie-oss</id>  
+      <username>moxie</username>  
+      <password>moxie@2017</password> 
+    </server> 
+    <server> 
+      <id>moxie-releases</id>  
+      <username>moxie</username>  
+      <password>moxie@2017</password> 
+    </server>
+    <server> 
+      <id>moxie-snapshots</id>  
+      <username>moxie</username>  
+      <password>moxie@2017</password> 
+    </server>
+    <server>
+      <id>xinbang-releases</id>
+      <username>upload</username>
+      <password>xinbang</password>
+    </server>
+    <server>
+      <id>xinbang-public</id>
+      <username>upload</username>
+      <password>xinbang</password>
+    </server>
+    <server>
+      <id>xinbang-snapshots</id>
+      <username>upload</username>
+      <password>xinbang</password>
+    </server>
+    <server>
+      <id>xinbang-thirdparty</id>
+      <username>upload</username>
+      <password>xinbang</password>
+    </server>
+  </servers>  
+
+  <profiles> 
+  
+
+    <profile>
+            <id>nexu</id>
+            <repositories>
+                 <repository>
+                    <id>xinbang-snapshots</id>
+                    <name>snapshots</name>
+                    <url>http://118.178.238.86:8081/repository/maven-snapshots</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository>
+                <repository>
+                    <id>xinbang-releases</id>
+                    <name>releases</name>
+                    <url>http://118.178.238.86:8081/repository/maven-releases</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository>
+                 <repository>
+                    <id>xinbang-public</id>
+                    <name>public</name>
+                    <url>http://118.178.238.86:8081/repository/maven-public</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository> 
+                <repository>
+                    <id>com.springsource.repository.bundles.release</id>
+                    <name>EBR Spring Release Repository</name>
+                    <url>http://repository.springsource.com/maven/bundles/release</url>
+                </repository>
+
+                <repository>
+                    <id>nexus-aliyun</id>
+                    <name>Nexus aliyun</name>
+                    <layout>default</layout>
+                    <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository>
+                <repository>
+                    <id>uk maven</id>
+                    <layout>default</layout>
+                    <name>uk Mirror of http://repo1.maven.org/maven2/</name>
+                    <url>http://uk.maven.org/maven2/</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository>
+            </repositories>
+        </profile>
+
+          <profile> 
+      <id>moxie-nexus</id>  
+      <repositories> 
+        <repository> 
+          <id>moxie-oss</id>  
+          <name>maven-public</name>  
+          <url>http://repository.51dojo.com:8081/repository/maven-public/</url>  
+          <snapshots> 
+            <enabled>true</enabled> 
+          </snapshots>  
+          <releases> 
+            <enabled>true</enabled> 
+          </releases>
+        </repository> 
+      </repositories>  
+      <pluginRepositories> 
+        <pluginRepository> 
+          <id>moxie-oss</id>  
+          <name>maven-public</name>  
+          <url>http://repository.51dojo.com:8081/repository/maven-public/</url>  
+          <releases> 
+            <enabled>true</enabled> 
+          </releases>  
+          <snapshots> 
+            <enabled>false</enabled> 
+          </snapshots> 
+        </pluginRepository> 
+      </pluginRepositories>
+    </profile> 
+  </profiles> 
+  <activeProfiles>
+    <!--make the profile active all the time -->
+    <activeProfile>moxie-nexus</activeProfile>
+    <activeProfile>nexu</activeProfile>
+  </activeProfiles>
+</settings>
